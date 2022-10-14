@@ -2,8 +2,8 @@
 
 document.querySelector(".btn-1").onclick = func1
 function func1() {
-    let res = prompt("Я сосал, меня ебали, что на жопе написали?", "")
-    alert(`На жопе написали ${res}`)
+    let res = prompt("test", "")
+    alert(`tesing ${res}`)
 }
 
 function func2() {

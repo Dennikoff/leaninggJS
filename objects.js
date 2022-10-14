@@ -100,3 +100,18 @@ let ladder = {
 
 ladder.up().up().down().showStep().down().showStep();
 
+function User() {
+    return {
+        name: "John",
+        age: 10
+    }
+}
+
+let user1 = new User; //User() the same
+
+user1.name = "Pavel";
+
+user1["name"] = "Denis";
+
+console.log(user1.name, user1["name"] = "Maria")
+
