@@ -79,8 +79,8 @@ let calculator = {
     }
 }
 
-calculator.read()
-console.log(calculator.sum(), calculator.mul())
+//calculator.read()
+//console.log(calculator.sum(), calculator.mul())
 
 let ladder = {
     step: 0,
@@ -98,7 +98,7 @@ let ladder = {
     }
 }
 
-ladder.up().up().down().showStep().down().showStep();
+//ladder.up().up().down().showStep().down().showStep();
 
 function User() {
     return {
@@ -115,3 +115,56 @@ user1["name"] = "Denis";
 
 console.log(user1.name, user1["name"] = "Maria")
 
+//tasks for constructors
+
+// task1
+
+let obj = {}
+
+function A() {return obj;}
+function B() {return obj;}
+
+
+let a = new A;
+let b = new B;
+
+alert(a == b)
+
+// task2
+
+function Calculator() {
+    return {
+        read() {
+            this.a = +prompt("A", "0");
+            this.b = +prompt("B", "0");
+            return this
+        },
+        sum() {
+            return this.a + this.b;
+        },
+        mul() {
+            return this.a * this.b;
+        }
+    }
+}
+
+let calculator2 = new Calculator();
+calculator2.read();
+alert(calculator2.sum());
+alert(calculator2.mul());
+
+
+//task3
+
+function Accumulator(startingValue){
+    this.value = startingValue;
+
+    this.read = function(){
+        return this.value += +prompt("Enter new value", "0")
+    }
+}
+
+let acc = new Accumulator(1);
+
+alert(acc.read())
+alert(acc.read())
