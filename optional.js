@@ -8,10 +8,16 @@ const user1 = {
     }
 }
 
-let user2 = null
+let user2 = {};
 
-alert(user1?.name)
-alert(user2?.name)
+alert(user1?.name);
+alert(user2?.name);
 
-user1.sayHello?.()
-user2.sayHello?.()
+user1.sayHello?.();
+user2.sayHello?.();
+
+let kek = Symbol.for("id");
+user1[kek] = "1";
+user2[kek] = "2";
+console.log(user1)
+alert(Symbol.keyFor(kek));
