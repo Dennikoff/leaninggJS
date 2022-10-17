@@ -38,5 +38,46 @@ console.log(0.1 + 0.2 == 0.3) //false??? yeap
 
 console.log((0.1 + 0.2).toFixed(2) == 0.3)
 
+console.log("----------")
+console.log(isNaN("kek"))
+console.log(isNaN(NaN))
+console.log(NaN === NaN)
 
+console.log(isFinite("228"))
+console.log(isFinite("229k"))
+console.log(isFinite(1e309)) //Infinite
+
+console.log("------")
+console.log(parseInt("123$"))
+console.log(parseInt("123.234"))
+console.log(parseFloat("123.134.4"))
+console.log(parseFloat("k1234"));
+console.log("----")
+console.log(parseInt("ff", 16)) // or 0xff, it is the same
+console.log(Math.random()) // [0, 1)
+
+console.log(Math.round(6.35*10)/10)
+
+//readNumber()
+
+function readNumber() {
+    let x = "xx"
+    while (isNaN(x)) {
+        x = prompt("Enter Number")
+        if (x === ""){
+            x = null
+            break
+        }
+
+    }
+    alert("Good job")
+    alert(x)
+}
+
+function randomInteger(min, max) {
+    return min + Math.random() * (max - min)
+}
+
+console.log(randomInteger(1, 6))
+console.log(randomInteger(6, 6))
 
