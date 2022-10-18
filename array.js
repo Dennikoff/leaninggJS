@@ -54,13 +54,14 @@ console.log(styles)
 function getMaxSubSum(arr) {
     let sum = 0
     let maxSum = 0
-    let partialSum = 0
+    let curSum = 0
     for (let item of arr) {
-        partialSum += item;
-        maxSum = Math.max(maxSum, partialSum);
-        if (partialSum < 0) partialSum = 0;
+        curSum += item
+        maxSum = Math.max(curSum, maxSum)
+        if(curSum < 0) {
+            curSum = 0
+        }
     }
-
     return maxSum;
 }
 
