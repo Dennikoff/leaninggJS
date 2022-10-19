@@ -52,7 +52,6 @@ styles.unshift("Реп", "Регги")
 console.log(styles)
 
 function getMaxSubSum(arr) {
-    let sum = 0
     let maxSum = 0
     let curSum = 0
     for (let item of arr) {
@@ -169,7 +168,7 @@ console.log(arr)
 console.log("-------")
 
 function copySorted(arr) {
-    let arrNew = arr.slice()
+    return arr.slice().sort()
 
 }
 
@@ -177,4 +176,152 @@ arr = ["HTML", "JavaScript", "CSS"];
 
 let sorted = copySorted(arr);
 
-alert( sorted );
+// alert(sorted);
+
+// alert(arr);
+
+function Calculator() {
+    this.methods = {
+        '+': (a, b) => +a + +b,
+        '-': (a, b) => a - b
+    }
+    this.calculate = function (str) {
+        arr = str.split(' ')
+        return this.methods[arr[1]](arr[0], arr[2])
+    }
+    this.addMethod = function (name, func) {
+        this.methods[name] = func
+    }
+}
+
+let calc = new Calculator()
+
+
+console.log(calc.calculate("3 + 7"));
+console.log(calc.calculate("3 - 7"));
+console.log(calc.calculate("7 - 7"));
+calc.addMethod("*", (a, b) => a * b)
+calc.addMethod("**", (a, b) => a ** b)
+
+console.log(calc.calculate("2 ** 3"));
+console.log(calc.calculate("7 * 7"));
+
+// let vasya = { name: "Вася", age: 25 };
+// let petya = { name: "Петя", age: 30 };
+// let masha = { name: "Маша", age: 28 };
+//
+// let users = [ vasya, petya, masha ];
+//
+//
+//
+// names = users.map(item => item.name)
+//
+// alert( names );
+
+
+
+// let vasya = { name: "Вася", surname: "Пупкин", id: 1 };
+// let petya = { name: "Петя", surname: "Иванов", id: 2 };
+// let masha = { name: "Маша", surname: "Петрова", id: 3 };
+//
+// let users = [ vasya, petya, masha ];
+//
+// let usersMapped = users.reduce((arr, value, index) => {
+//     arr[index] = {
+//         id: value.id,
+//         fullName: value.name + ' ' + value.surname
+//     }
+//     return arr
+// }, []);
+//
+// console.log("---------------")
+// console.log(usersMapped)
+
+function sortByAge(arr) {
+    arr.sort((a, b) => a.age < b.age ? 1 : -1)
+    return arr
+}
+
+let vasya = { name: "Вася", age: 25 };
+let petya = { name: "Петя", age: 30 };
+let masha = { name: "Маша", age: 28 };
+
+arr = [ vasya, petya, masha ];
+
+sortByAge(arr);
+
+//
+// alert(arr[0].name);
+// alert(arr[1].name);
+// alert(arr[2].name);
+
+function shuffle(arr) {
+    arr.sort(()=>Math.random() - 0.5)
+}
+
+arr = [1, 2, 3];
+
+shuffle(arr);
+console.log(arr)
+
+shuffle(arr);
+console.log(arr)
+
+shuffle(arr);
+console.log(arr)
+
+console.log("-------------")
+
+function getAverageAge(arr) {
+    sum = arr.reduce((currentSum, value) => currentSum += value.age,0)
+    return arr.length > 0 ? sum / arr.length : 0;
+}
+
+vasya = { name: "Вася", age: 100 };
+petya = { name: "Петя", age: 200 };
+masha = { name: "Маша", age: 250 };
+
+arr = [ vasya, petya, masha ];
+
+alert( getAverageAge(arr) );
+
+
+function unique(arr) {
+    let newArr = []
+
+    for (let i = 0; i < arr.length; i++) {
+        if(newArr.indexOf(arr[i]) === -1) {
+            newArr.push(arr[i])
+        }
+    }
+    return newArr
+}
+
+let strings = ["кришна", "кришна", "харе", "харе",
+    "харе", "харе", "кришна", "кришна", ":-O"
+];
+
+let str = unique(strings);
+console.log(str)
+
+function groupById(array){
+    // let newArr = []
+    // for(let i = 0; i < array.length; i++) {
+    //     newArr[array[i].id] = array[i]
+    // }
+    // return newArr
+    return array.reduce((newArr, value) =>{
+        newArr[value.id] = value;
+        return newArr;
+    }, [])
+}
+
+let users = [
+    {id: 'john', name: "John Smith", age: 20},
+    {id: 'ann', name: "Ann Smith", age: 24},
+    {id: 'pete', name: "Pete Peterson", age: 31},
+];
+
+let usersById = groupById(users);
+
+console.log(usersById)
