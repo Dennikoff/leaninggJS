@@ -38,4 +38,64 @@ let values = ["Hare", "Krishna", "Hare", "Krishna",
     "Krishna", "Krishna", "Hare", "Hare", ":-O"
 ];
 
-alert( unique(values) );
+// alert( unique(values) );
+
+
+let user = {
+    name: "John",
+    age: 25,
+    id: 1
+}
+
+let mapFromObject = new Map(Object.entries(user))
+
+function sumSalaries(arr) {
+    let sum = 0
+    for (let value of Object.values(arr)) {
+        sum += value
+    }
+    return sum
+}
+
+let salaries = {
+    "John": 100,
+    "Pete": 300,
+    "Mary": 250
+};
+
+// alert( sumSalaries(salaries) );
+
+function countObj(obj) {
+    return Object.values(obj).length
+}
+
+let id = Symbol("id")
+
+// alert(countObj({
+//     f: "kek",
+//     k: "mem",
+//     [id]: "lol"
+// }))
+
+user = { name: "John", years: 30 };
+
+let {name: name, years: age, isAdmin: isAdmin = 'false'} = user
+
+console.log(name, age, isAdmin)
+
+salaries = {
+    "John": 100,
+    "Pete": 300,
+    "Mary": 250
+};
+
+let maxName;
+let maxSal = 0;
+
+for(let [name, salarie] of Object.entries(salaries)) {
+    if (salarie > maxSal) {
+        maxSal = salarie;
+        maxName = name;
+    }
+}
+console.log(maxName)
